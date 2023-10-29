@@ -99,7 +99,7 @@ dict_val = df_train_val.to_dict(orient="records")
 """### XGBoot model is the winner
 Train the model with the full train dataset, and test it
 """
-
+print("Train the final model.")
 # process full train dataset and test
 y_train_full = np.log1p(df_train_full.saleprice.values)
 df_train_full = df_train_full.reset_index(drop=True)
@@ -131,7 +131,9 @@ xgb_params = {
 }
 
 model = xgb.train(xgb_params, dfulltrain, num_boost_round=100)
-
+y_pred = model.predict(dtest)
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+print(f"rmse={rmse}")
 
 ### Save the model
 
@@ -141,11 +143,5 @@ output_file = "model.bin"
 with open(output_file, "wb") as f_out:
     pickle.dump((dv, model), f_out)
 
-
-### Load the model
-
-model_file = "model.bin"
-
-with open(model_file, "rb") as f_in:
-    dv, model = pickle.load(f_in)
+print(f'the model is saved to {output_file}')
 
