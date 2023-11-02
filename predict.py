@@ -2,9 +2,6 @@ import pickle
 from flask import Flask, request, jsonify
 import xgboost as xgb
 import numpy as np
-import warnings
-
-warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
 
 modle_file = "model.bin"
 
@@ -31,6 +28,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=9696)
+
 
 
 
