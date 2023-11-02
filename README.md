@@ -96,3 +96,14 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 - In the termianl, run `python3 predict.py` to start your server. You might just need `python yourfilename.py`
 - open another terminal to run your `test.py` with `python3 test.py`. Or you might just need `python test.py`. If it shows `{'price': xxxx}`, the model and server are working. a sample house information is in the test file.
 - `Ctrl + c` to end the server
+
+## Use the service to generate Kaggle competition results
+- `test.ipynb` show how to generate the final results in csv format
+- method: read data to dataframe, the cleaning process
+- get ids, saleprice array
+- write the final results to csv
+- upload your csv and check your score and ranking 😊
+my first 2 tries are the same: 0.146; there is no difference if you round the number or not.
+- definitely need more tunings, if you want to rank higher
+**You should be proud of yourself with this compitition.**
+
