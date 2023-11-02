@@ -1,7 +1,13 @@
 import requests
 
-host = "predict-house-price-env.eba-sda8fmgr.us-west-2.elasticbeanstalk.com"
-url = f"http://{host}/predict"
+url = "http://localhost:9696/predict"
+# use the above url link before you deploy to the cloud
+
+
+# host = "predict-house-price-env.eba-sda8fmgr.us-west-2.elasticbeanstalk.com"
+# url = f"http://{host}/predict"
+# this above code is for after deployment in aws
+
 
 # sample test
 house = {

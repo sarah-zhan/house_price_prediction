@@ -64,14 +64,35 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     ```features = list(dv.get_feature_names_out())
     dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
     dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
-
 - xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
 - plot the graph
-- ```from IPython.utils.capture import capture_output
-import sys``` to save the result using loop
+- `from IPython.utils.capture import capture_output`
+  `import sys`
+   to save the result using loop
 
     **tuning**
     - `eta`: ETA is the learning rate of the model. XGBoost uses gradient descent to calculate and update the model. In gradient descent, we are looking for the minimum weights that help the model to learn the data very well. This minimum weights for the features is updated each time the model passes through the features and learns the features during training. Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
     `eta=0.3` is the best (faster and more accurate)
     - `max_depth`: how many trees? `max_depth=6` is the best.
     - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
+
+## Choose the final model
+- use the above 3 pre-train model to test the rmse
+- **xgboost** is the winner 💥
+
+## Use the full train dataset to train the model again and Test
+- repeat the previous steps to clean the data, get feature matirx, train the model and test with test dataset
+- check whether you are happy with the result
+
+## Save the model
+- `pickle` to save the model
+
+## Transfer the training model to a script
+- `train.py`
+- the model is saved in `model.bin`
+
+## Load the model start a webservice with flask
+- `predict.py`
+- In the termianl, run `python3 predict.py` to start your server. You might just need `python yourfilename.py`
+- open another terminal to run your `test.py` with `python3 test.py`. Or you might just need `python test.py`. If it shows `{'price': xxxx}`, the model and server are working. a sample house information is in the test file.
+- `Ctrl + c` to end the server
