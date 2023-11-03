@@ -145,3 +145,20 @@ EXPOSE 9696
 # execute the service, bind the port host to 9696
 ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696",  "predict:app" ]
 ``````
+
+## Deploy to AWS Elastic Beanstalk
+- create an aws account
+- install eb cli as dev dependency `pipenv install awsebcli --dev`
+- go to virtual environment `pipenv shell`
+- initial the eb `eb init -p "Docker running on 64bit Amazon Linux 2" predict-house-price`
+- `ls -a` to check whether there is `.elasticbeanstalk` folder
+- `ls .elasticbeanstalk/` to check the doc inside the folder `config.yml`
+- run locally to test `eb local run --port 9696`
+- in another terminal run `python3 test.py` or `python yourfile.py` to test
+- implement in the cloud: create a cloud environment -> `eb create predict-house-price-env`
+- copy the service link to `test.py`, update our url
+- run `python3 test.py` or `python yourfile.py` to test
+
+**I have terminated this service to avoid gnerating extra fee.**
+
+![aws eb](eb.gif)
