@@ -60,7 +60,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     - `max_depth`: range [20, 30, 40, 50, 60, 70]
         - each depth, loop all the `n_estimator`
         - set the seed to fix the result `random_state=1`, help the model process faster [optional]`n_jobs=-1`
-        - plot the result to find the best `max_depth`: 20 ***************************
+        - plot the result to find the best `max_depth`: 20 .............................
     ![maxdepth_rf](maxdepth_rf.png)
     - `min_samples_leaf`(how big the tree is): range [1, 5, 10, 15, 20]
         - each `min_samples_leaf`, loop all the `n_estimator`
@@ -87,9 +87,9 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     - `eta`: ETA is the learning rate of the model. XGBoost uses gradient descent to calculate and update the model. In gradient descent, we are looking for the minimum weights that help the model to learn the data very well. This minimum weights for the features is updated each time the model passes through the features and learns the features during training. Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
     `eta=0.3` is the best (faster and more accurate)
     ![eta](eta.png)
-    - `max_depth`: how many trees? `max_depth=6` is the best.
-    ![maxdepth_xgb](maxdepth_xgb.png) ******************************************
-    - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
+    - `max_depth`: how many trees? `max_depth=6` is the best........................
+    ![maxdepth_xgb](maxdepth_xgb.png)
+    - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.....
     ![minchildweight](minchildweight.png)
 
 ## Choose the final model
