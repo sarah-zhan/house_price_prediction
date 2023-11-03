@@ -107,3 +107,41 @@ my first 2 tries are the same: 0.146; there is no difference if you round the nu
 - definitely need more tunings, if you want to rank higher
 **You should be proud of yourself with this compitition.**
 
+## Virtual Environment
+- to build a virtual environment, run `pip install pipenv`
+- install packages `pipenv install numpy sklearn==1.3.1 flask gunicorn xgboost requests`
+- now we have `Pipfile` and `Pipfile.lock`
+- next time, when we run in a different machine, run `pipenv install` to install all required packages
+- run `pipenv shell` into virtual environment
+
+## Docker
+- isoloate the environment from the host machine
+- You can find docker image here https://hub.docker.com/_/python
+- I have chosen `python:3.10` to match my python version; choose as your choice
+- `docker run -it --rm --entrypoint=bash python:3.10` to download the docker image. `it`: access to terminal; `--rm`: remove the image after installation; `-entrypoint=bash`: communicate with the terminal using `bash` in the image
+- create a file `Dockerfile`
+``````python
+# install python
+FROM python:3.10
+
+# install pipenv
+RUN pip install pipenv
+
+# create and go to the directory
+WORKDIR /app
+
+# copy file to current directory
+COPY ["Pipfile", "Pipfile.lock", "./"]
+
+# install packages and deploy them
+RUN pipenv install --system --deploy
+
+# copy file and mode to current directory
+COPY ["predict.py", "model.bin", "./"]
+
+# open port
+EXPOSE 9696
+
+# execute the service, bind the port host to 9696
+ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696",  "predict:app" ]
+``````

@@ -10,7 +10,6 @@ flask = "*"
 gunicorn = "*"
 xgboost = "*"
 requests = "*"
-gevent = "*"
 
 [dev-packages]
 awsebcli = "*"
