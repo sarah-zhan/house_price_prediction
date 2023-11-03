@@ -21,6 +21,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 - cleaning data: change to column name and data fields to lower case, replace space with "_"
 - translate some column value to their actual names, not just a representive number
 - check numerical values, extreme value like 9999999999999 ```describe().round()```. ```T``` make it easier to check all the values without scrolling.
+![describe](describe.png)
 - remove useless columns for the project
 
 ## Prepare data for model training
@@ -54,15 +55,18 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 - `from sklearn.ensemble import RandomForestRegressor`
 - pick a range from 10 to 200 to train the model
 - turn it to dataframe and plot it (`n_estimators = 160` is the best), but we dont fix it yet
+    ![n](n.png)
     **tuning**
     - `max_depth`: range [20, 30, 40, 50, 60, 70]
         - each depth, loop all the `n_estimator`
         - set the seed to fix the result `random_state=1`, help the model process faster [optional]`n_jobs=-1`
         - plot the result to find the best `max_depth`: 20
+       ![maxdepth_rf](maxdepth_rf.png)
     - `min_samples_leaf`(how big the tree is): range [1, 5, 10, 15, 20]
         - each `min_samples_leaf`, loop all the `n_estimator`
         - `max_depth`: 20, set the seed to fix the result `random_state=1`, help the model process faster [optional]`n_jobs=-1`
         - plot the result to find the best `min_samples_leaf`: 1
+        ![minsampleleaf](minsampleleaf.png)
 - use `n_estimators=160, max_depth=20, min_samples_leaf=1` to train the model
 - rmse result improve comparing to decision tree model
 
@@ -74,6 +78,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
 - xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
 - plot the graph
+![xgb1](xgb1.png)
 - `from IPython.utils.capture import capture_output`
   `import sys`
    to save the result using loop
@@ -81,8 +86,11 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     **tuning**
     - `eta`: ETA is the learning rate of the model. XGBoost uses gradient descent to calculate and update the model. In gradient descent, we are looking for the minimum weights that help the model to learn the data very well. This minimum weights for the features is updated each time the model passes through the features and learns the features during training. Tuning the learning rate helps you tell the model what speed it would use in deriving the minimum for the weights.
     `eta=0.3` is the best (faster and more accurate)
+    ![eta](eta.png)
     - `max_depth`: how many trees? `max_depth=6` is the best.
+    ![maxdepth_xgb](maxdepth_xgb.png)
     - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
+    ![minchildweight](minchildweight.png)
 
 ## Choose the final model
 - use the above 3 pre-train model to test the rmse
