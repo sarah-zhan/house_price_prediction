@@ -2,6 +2,8 @@
 ## Predict sales prices and practice feature engineering, RFs, and gradient boosting
 This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview"). You can upload your result in the Kaggle competitions and have fun!
 
+![kaggle predict house price](<kaggle predict house price.png>)
+
 ### Practice Skills
 - Creative feature engineering
 - Advanced regression techniques like random forest and gradient boosting
@@ -12,8 +14,10 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 
 ## EDA (main.ipynb)
 - use ```pandas``` to convert the dataset to dataframe to have a general idea of the dataset
+![dataframe](df.png)
 - explore the data types ```dtypes```
 - plot a graph to check our target value distribution ```seaborn```, ``` histplot```: it is screwed. It should use `log`
+![houseprice](houseprice.png)
 - cleaning data: change to column name and data fields to lower case, replace space with "_"
 - translate some column value to their actual names, not just a representive number
 - check numerical values, extreme value like 9999999999999 ```describe().round()```. ```T``` make it easier to check all the values without scrolling.
@@ -36,11 +40,15 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 - compare ```y_pred```(with `X_train`) and ```y_train```, it shows ```rmse=0```. compare ```y_pred```(with `X_val`) and ```y_train```, it shows ```rmse=0.2256```.The training model is overfitting.
     **tuning**
     - ```max_depth```(how many trees): pick a relative low rmse value; the result can be varied.
+        ![matdepth_dt](maxdepth_dt.png)
+
         - pick ```max_depth=10``` -> train rmse gets better already
     - `min_saples_leaf`(how big the tree is): set a range of max_depth from last step, in each depth, loop through a group of `min_saples_leaf`
         - make a dataframe of `"max_depth", "min_samples_leaf", "rmse"` and use seaborn to generate a heatmap; pick the best combination ```max_depth=10, min_samples_leaf=5```
+        ![heatmap](heatmap.png)
         - calculate the rmse
-    - use `feature_importances_` to check top 30 important features
+    - use `feature_importances_` to check top 20 important features
+    ![top20](top20.png)
 
 ### Random Forest
 - `from sklearn.ensemble import RandomForestRegressor`
