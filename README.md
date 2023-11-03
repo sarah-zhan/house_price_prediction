@@ -175,6 +175,6 @@ ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696",  "predict:app" ]
 - copy the service link to `test.py`, update our url
 - run `python3 test.py` or `python yourfile.py` to test
 
-**I have terminated this service to avoid gnerating extra fee.**
+**I have terminated this service to avoid generating extra fees.**
 
 ![aws eb](eb.gif)
