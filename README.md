@@ -77,7 +77,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
     dval = xgb.DMatrix(X_val, label=y_val, feature_names=features)```
 - xgb_output(output) function to capture the output (number interation, train_rmse, val_rmse)
-- plot the graph
+- plot the graph .........................................................
 ![xgb1](xgb1.png)
 - `from IPython.utils.capture import capture_output`
   `import sys`
