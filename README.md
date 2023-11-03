@@ -88,6 +88,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
     `eta=0.3` is the best (faster and more accurate)
     ![eta](eta.png)
     - `max_depth`: how many trees? `max_depth=6` is the best.
+    
     ![maxdepth_xgb](maxdepth_xgb.png)
     - `min_child_weight`: how big is the tree? `min_child_weight=10` is the best.
     ![minchildweight](minchildweight.png)
