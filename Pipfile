@@ -11,6 +11,7 @@ gunicorn = "*"
 xgboost = "*"
 requests = "*"
 streamlit = "*"
+shap = "*"
 
 [dev-packages]
 awsebcli = "*"
