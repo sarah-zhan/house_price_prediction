@@ -63,7 +63,7 @@ def predict():
 
     return result["price"]
 
-st.subheader("Our estimated house price")
+st.subheader("Estimated house price")
 st.write("👇👇👇👇👇👇👇👇👇👇")
 st.write(predict())
 st.write("👆👆👆👆👆👆👆👆👆👆")
