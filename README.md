@@ -121,6 +121,7 @@ This project is from [Kaggle]("https://www.kaggle.com/competitions/house-prices-
 - upload your csv and check your score and ranking 😊
 my first 2 tries are the same: 0.146; there is no difference if you round the number or not.
 - definitely need more tunings, if you want to rank higher
+- maybe start to use fewer features as the first step
 **You should be proud of yourself with this compitition.**
 
 ## Virtual Environment
