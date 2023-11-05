@@ -178,3 +178,22 @@ ENTRYPOINT [ "gunicorn", "--bind=0.0.0.0:9696",  "predict:app" ]
 **I have terminated this service to avoid generating extra fees.**
 
 ![aws eb](eb.gif)
+
+## Build a frontend with streamlit
+- `pipenv install streamlit` install streamlit
+- import other packages in `app.py`
+- write a tile `st.write`
+- create a sidebar header `st.sidebar.header`
+- build a function that include the most important features in your model
+- create sidebar slider in the function `st.sidebar.slider`
+- display the parameters as a table
+- call the function and show the result
+- run `streamlit run app.py` to start the server
+- register an account in streamlit
+- push your code in github
+- click "Deploy" button when viewing your app at the up-right corner
+- confirm your github folder, you main app name, for example `app.py`
+- 🎊Yay!!! Congrats! Your app is live🎊
+[House Price Prediction](https://sarah-zhan-house-price-prediction-app-weta8q.streamlit.app/)
+
+![housepricepredictionfrontend](housepricepredictionfrontend.png)
